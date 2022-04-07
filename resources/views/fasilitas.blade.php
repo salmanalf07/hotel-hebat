@@ -32,11 +32,11 @@
     @foreach($data as $datas)
     @if($loop->first)
     <div class="carousel-item active">
-      <img src="{{ asset('storage/'.$datas->link) }}" class="w-100" alt="...">
+      <img src="{{ asset('assets/images/'.$datas->link) }}" class="w-100" alt="...">
     </div>
     @else
     <div class="carousel-item">
-      <img src="{{ asset('storage/'.$datas->link) }}" class="w-100" alt="...">
+      <img src="{{ asset('assets/images/'.$datas->link) }}" class="w-100" alt="...">
     </div>
     @endif
     @endforeach
@@ -59,7 +59,7 @@
   <p class="text-start h1">Fasilitas</p>
   @foreach($data as $data)
   <div style="width:32%">
-    <img src="{{ asset('storage/'.$data->link) }}" class="img-rinci" alt="Responsive image">
+    <img src="{{ asset('assets/images/'.$data->link) }}" class="img-rinci" alt="Responsive image">
     <p class="p-rinci">{{$data->facilitie}}</p>
   </div>
   @endforeach

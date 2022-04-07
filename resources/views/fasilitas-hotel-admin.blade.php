@@ -36,7 +36,7 @@
               <th>{{$no++}}</th>
               <td>{{$data->facilitie}}</td>
               <td>{{$data->keterangan}}</td>
-              <td><img width="100" src="{{ asset('storage/'.$data->link) }}" /></td>
+              <td><img width="100" src="{{ asset('assets/images/'.$data->link) }}" /></td>
               <td>
                 <p><button id="edit" data-id="{{$data->id}}" class="btn btn-primary">Ubah</button> | <button id="delete" data-id="{{$data->id}}" class="btn btn-danger">Delete</button></p>
               </td>

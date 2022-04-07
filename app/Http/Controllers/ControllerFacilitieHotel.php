@@ -4,18 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Models\FacilitieHotel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 class ControllerFacilitieHotel extends Controller
 {
     public function store(Request $request)
     {
-        $path = $request->file('image')->store('facilities-hotel');
+        $input = $request->all();
+        $input['image'] = time() . '.' . $request->image->extension();
+        //$request->image->move(public_path('images'), $input['image']);
+        Storage::disk('public')->put($input['image'],  File::get($request->image));
+
+        //$path = $request->file('image')->store('facilities-hotel');
 
         $post = new FacilitieHotel();
         $post->facilitie = $request->facilitie;
         $post->keterangan = $request->keterangan;
-        $post->link = $path;
+        $post->link = $input['image'];
         $post->save();
 
         $data = [$post];
